@@ -7,6 +7,11 @@ jobs:
   branch-checks:
     runs-on: ubuntu-latest
     steps:
+      - name: Harden Runner
+        uses: step-security/harden-runner@91182cccc01eb5e619899d80e4e971d6181294a7 # v2.10.1
+        with:
+          egress-policy: audit
+
       - id: get-branch
         run: |
           BRANCH=($(echo ${{ github.ref }} | sed -E 's/refs\/heads\///'))
@@ -23,7 +28,12 @@ jobs:
     if: ${{ needs.branch-checks.outputs.is-latest-branch == 'true' }}
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - name: Harden Runner
+        uses: step-security/harden-runner@91182cccc01eb5e619899d80e4e971d6181294a7 # v2.10.1
+        with:
+          egress-policy: audit
+
+      - uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
 
       - run: curl -X POST "https://api.netlify.com/build_hooks/${{ secrets.FRONTPAGE_HOOK }}"
 
@@ -32,13 +42,18 @@ jobs:
     if: ${{ needs.branch-checks.outputs.is-next-branch == 'true' || needs.branch-checks.outputs.is-release-branch == 'true' }}
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - name: Harden Runner
+        uses: step-security/harden-runner@91182cccc01eb5e619899d80e4e971d6181294a7 # v2.10.1
+        with:
+          egress-policy: audit
+
+      - uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
         with:
           ref: next
           path: next
 
       - id: next-version
-        uses: notiz-dev/github-action-json-property@release
+        uses: notiz-dev/github-action-json-property@a5a9c668b16513c737c3e1f8956772c99c73f6e8 # release
         with:
           path: ${{ github.workspace }}/next/code/package.json
           prop_path: version
@@ -54,7 +69,12 @@ jobs:
     if: ${{ needs.branch-checks.outputs.is-next-branch == 'true' }}
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - name: Harden Runner
+        uses: step-security/harden-runner@91182cccc01eb5e619899d80e4e971d6181294a7 # v2.10.1
+        with:
+          egress-policy: audit
+
+      - uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
         with:
           fetch-depth: 0
 
@@ -72,6 +92,11 @@ jobs:
     needs: [branch-checks, get-next-release-branch]
     runs-on: ubuntu-latest
     steps:
+      - name: Harden Runner
+        uses: step-security/harden-runner@91182cccc01eb5e619899d80e4e971d6181294a7 # v2.10.1
+        with:
+          egress-policy: audit
+
       - run: |
           IS_NEXT_RELEASE_BRANCH=${{ needs.branch-checks.outputs.branch == needs.get-next-release-branch.outputs.branch }}
           echo "is-next-release-branch=$IS_NEXT_RELEASE_BRANCH" >> $GITHUB_ENV
@@ -92,6 +117,11 @@ jobs:
       [branch-checks, next-release-branch-check, create-next-release-branch]
     runs-on: ubuntu-latest
     steps:
+      - name: Harden Runner
+        uses: step-security/harden-runner@91182cccc01eb5e619899d80e4e971d6181294a7 # v2.10.1
+        with:
+          egress-policy: audit
+
       - if: ${{ needs.branch-checks.outputs.is-actionable-branch == 'true' && needs.branch-checks.outputs.is-latest-branch == 'false' && needs.next-release-branch-check.outputs.check == 'false' }}
         run: |
           curl -X POST https://api.github.com/repos/storybookjs/frontpage/dispatches \

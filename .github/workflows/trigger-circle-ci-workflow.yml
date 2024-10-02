@@ -14,10 +14,18 @@ concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
+permissions:
+  contents: read
+
 jobs:
   get-branch:
     runs-on: ubuntu-latest
     steps:
+      - name: Harden Runner
+        uses: step-security/harden-runner@91182cccc01eb5e619899d80e4e971d6181294a7 # v2.10.1
+        with:
+          egress-policy: audit
+
       - id: get-branch
         env:
           # Stored as environment variable to prevent script injection
@@ -39,6 +47,11 @@ jobs:
   get-parameters:
     runs-on: ubuntu-latest
     steps:
+      - name: Harden Runner
+        uses: step-security/harden-runner@91182cccc01eb5e619899d80e4e971d6181294a7 # v2.10.1
+        with:
+          egress-policy: audit
+
       - if: github.event_name == 'pull_request_target' && ((github.event.action == 'labeled' && github.event.label.name == 'ci:normal') || (github.event.action != 'labeled' && contains(github.event.pull_request.labels.*.name, 'ci:normal')))
         run: echo "workflow=normal" >> $GITHUB_ENV
       - if: github.event_name == 'pull_request_target' && ((github.event.action == 'labeled' && github.event.label.name == 'ci:docs') || (github.event.action != 'labeled' && contains(github.event.pull_request.labels.*.name, 'ci:docs')))
@@ -57,8 +70,13 @@ jobs:
     needs: [get-branch, get-parameters]
     if: needs.get-parameters.outputs.workflow != ''
     steps:
+      - name: Harden Runner
+        uses: step-security/harden-runner@91182cccc01eb5e619899d80e4e971d6181294a7 # v2.10.1
+        with:
+          egress-policy: audit
+
       - name: Trigger Normal tests
-        uses: fjogeleit/http-request-action@v1
+        uses: fjogeleit/http-request-action@07eceb44a46c6fa1161bd89f97aeec4ec409bfc8 # v1.16.2
         with:
           url: 'https://circleci.com/api/v2/project/gh/storybookjs/storybook/pipeline'
           method: 'POST'

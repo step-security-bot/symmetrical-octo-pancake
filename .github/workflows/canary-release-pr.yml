@@ -26,8 +26,13 @@ jobs:
     runs-on: ubuntu-latest
     environment: release
     steps:
+      - name: Harden Runner
+        uses: step-security/harden-runner@91182cccc01eb5e619899d80e4e971d6181294a7 # v2.10.1
+        with:
+          egress-policy: audit
+
       - name: Fail if triggering actor is not administrator
-        uses: prince-chrismc/check-actor-permissions-action@v2.0.4
+        uses: prince-chrismc/check-actor-permissions-action@76c9ebe1cc5f00207d4ac0948be353226e27bf93 # v2.0.4
         with:
           permission: admin
 
@@ -49,19 +54,19 @@ jobs:
           echo "timestamp=$(date +%s)" >> $GITHUB_OUTPUT
 
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
         with:
           repository: ${{ steps.info.outputs.isFork == 'true' && steps.info.outputs.repository || null }}
           ref: ${{ steps.info.outputs.sha }}
           token: ${{ secrets.GH_TOKEN }}
 
       - name: Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@0a44ba7841725637a19e28fa30b79a866c81b0a6 # v4.0.4
         with:
           node-version-file: ".nvmrc"
 
       - name: Cache dependencies
-        uses: actions/cache@v4
+        uses: actions/cache@0c45773b623bea8c8e75f6c82b208c3cf94ea4f9 # v4.0.2
         with:
           path: |
             ~/.yarn/berry/cache
@@ -88,7 +93,7 @@ jobs:
 
       - name: Replace Pull Request Body
         # TODO: replace with ivangabriele/find-and-replace-pull-request-body@vX when https://github.com/ivangabriele/find-and-replace-pull-request-body/pull/11 has been released
-        uses: mcky/find-and-replace-pull-request-body@v1.1.6-mcky
+        uses: mcky/find-and-replace-pull-request-body@ffeec965b89c9284c290f2a85077a8c2c60f5040 # v1.1.6-mcky
         with:
           githubToken: ${{ secrets.GH_TOKEN }}
           prNumber: ${{ inputs.pr }}

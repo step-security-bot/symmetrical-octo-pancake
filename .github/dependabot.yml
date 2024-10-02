@@ -9,3 +9,513 @@ updates:
     directory: "/" # Location of package manifests
     schedule:
       interval: "weekly"
+
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /code/addons/a11y
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /code/addons/actions
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /code/addons/backgrounds
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /code/addons/controls
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /code/addons/docs
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /code/addons/essentials
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /code/addons/gfm
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /code/addons/highlight
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /code/addons/interactions
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /code/addons/jest
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /code/addons/links
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /code/addons/measure
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /code/addons/onboarding
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /code/addons/outline
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /code/addons/storysource
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /code/addons/test
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /code/addons/themes
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /code/addons/toolbars
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /code/addons/viewport
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /code/builders/builder-vite
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /code/builders/builder-webpack5
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /code/core
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /code/core/src/common/js-package-manager/fixtures/multiple-lockfiles-pnpm-closer/inner
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /code/core/src/common/js-package-manager/fixtures/multiple-lockfiles-pnpm-closer
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /code/core/src/common/js-package-manager/fixtures/multiple-lockfiles
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /code/core/src/common/js-package-manager/fixtures/pnpm-workspace
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /code/core/src/common/js-package-manager/fixtures/pnpm-workspace/package
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /code/deprecated/builder-manager
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /code/deprecated/channels
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /code/deprecated/client-logger
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /code/deprecated/components
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /code/deprecated/core-common
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /code/deprecated/core-events
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /code/deprecated/core-server
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /code/deprecated/csf-tools
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /code/deprecated/docs-tools
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /code/deprecated/manager-api
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /code/deprecated/manager
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /code/deprecated/node-logger
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /code/deprecated/preview-api
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /code/deprecated/preview
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /code/deprecated/router
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /code/deprecated/telemetry
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /code/deprecated/theming
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /code/deprecated/types
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /code/frameworks/angular
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /code/frameworks/ember
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /code/frameworks/experimental-nextjs-vite
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /code/frameworks/html-vite
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /code/frameworks/html-webpack5
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /code/frameworks/nextjs
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /code/frameworks/preact-vite
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /code/frameworks/preact-webpack5
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /code/frameworks/react-vite
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /code/frameworks/react-webpack5
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /code/frameworks/server-webpack5
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /code/frameworks/svelte-vite
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /code/frameworks/svelte-webpack5
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /code/frameworks/sveltekit
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /code/frameworks/vue3-vite
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /code/frameworks/vue3-webpack5
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /code/frameworks/web-components-vite
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /code/frameworks/web-components-webpack5
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /code/lib/blocks
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /code/lib/cli-sb
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /code/lib/cli-storybook
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /code/lib/cli
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /code/lib/codemod
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /code/lib/core-webpack
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /code/lib/create-storybook
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /code/lib/csf-plugin
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /code/lib/instrumenter
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /code/lib/react-dom-shim
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /code/lib/source-loader
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /code/lib/test
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /code
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /code/presets/create-react-app
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /code/presets/html-webpack
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /code/presets/preact-webpack
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /code/presets/react-webpack
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /code/presets/server-webpack
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /code/presets/svelte-webpack
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /code/presets/vue3-webpack
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /code/renderers/html
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /code/renderers/preact
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /code/renderers/react
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /code/renderers/server
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /code/renderers/svelte
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /code/renderers/vue3
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /code/renderers/web-components
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /scripts/eslint-plugin-local-rules
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /scripts
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /test-storybooks/ember-cli
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /test-storybooks/external-docs
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /test-storybooks/portable-stories-kitchen-sink/nextjs
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /test-storybooks/portable-stories-kitchen-sink/react
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /test-storybooks/portable-stories-kitchen-sink/svelte
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /test-storybooks/portable-stories-kitchen-sink/vue3
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /test-storybooks/server-kitchen-sink
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /test-storybooks/standalone-preview
+    schedule:
+      interval: daily

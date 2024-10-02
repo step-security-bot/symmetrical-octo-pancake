@@ -27,6 +27,11 @@ jobs:
       run:
         working-directory: scripts
     steps:
+      - name: Harden Runner
+        uses: step-security/harden-runner@91182cccc01eb5e619899d80e4e971d6181294a7 # v2.10.1
+        with:
+          egress-policy: audit
+
       - name: Cancel if [skip ci]
         if: contains(github.event.head_commit.message, '[skip ci]')
         env:
@@ -37,18 +42,18 @@ jobs:
           gh run watch ${{ github.run_id }}
 
       - name: Checkout ${{ github.ref_name }}
-        uses: actions/checkout@v4
+        uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
         with:
           fetch-depth: 100
           token: ${{ secrets.GH_TOKEN }}
 
       - name: Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@0a44ba7841725637a19e28fa30b79a866c81b0a6 # v4.0.4
         with:
           node-version-file: ".nvmrc"
 
       - name: Cache dependencies
-        uses: actions/cache@v4
+        uses: actions/cache@0c45773b623bea8c8e75f6c82b208c3cf94ea4f9 # v4.0.2
         with:
           path: |
             ~/.yarn/berry/cache
@@ -192,6 +197,6 @@ jobs:
         if: failure()
         env:
           DISCORD_WEBHOOK: ${{ secrets.DISCORD_MONITORING_URL }}
-        uses: Ilshidur/action-discord@master
+        uses: Ilshidur/action-discord@08d9328877d6954120eef2b07abbc79249bb6210 # master
         with:
           args: "The GitHub Action for publishing version ${{ steps.version.outputs.current-version }} (triggered by ${{ github.triggering_actor }}) failed! See run at: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"

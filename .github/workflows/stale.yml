@@ -3,11 +3,22 @@ on:
   schedule:
     - cron: "30 1 * * *"
 
+permissions:
+  contents: read
+
 jobs:
   stale:
+    permissions:
+      issues: write  # for actions/stale to close stale issues
+      pull-requests: write  # for actions/stale to close stale PRs
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/stale@v9
+      - name: Harden Runner
+        uses: step-security/harden-runner@91182cccc01eb5e619899d80e4e971d6181294a7 # v2.10.1
+        with:
+          egress-policy: audit
+
+      - uses: actions/stale@28ca1036281a5e5922ead5184a1bbf96e5fc984e # v9.0.0
         with:
           stale-issue-message: "Hi there! Thank you for opening this issue, but it has been marked as `stale` because we need more information to move forward. Could you please provide us with the requested reproduction or additional information that could help us better understand the problem? We'd love to resolve this issue, but we can't do it without your help!"
           close-issue-message: "I'm afraid we need to close this issue for now, since we can't take any action without the requested reproduction or additional information. But please don't hesitate to open a new issue if the problem persists – we're always happy to help. Thanks so much for your understanding."
